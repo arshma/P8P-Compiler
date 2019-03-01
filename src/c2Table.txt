@@ -1,0 +1,61 @@
+				p8p c2 table
+
+
+row	    sigma  c1i  prod     newsigma	[sigma]->stack->[down]	   code
+
+ 0	       ;    26	 30   <assign st>  416	<expr> = <var>		     y
+ 1			 31   <i/o st>	   417	<expr> , <put>		     y
+ 2			  4   <dec>	   402	<var list> <type>	     n
+ 3			 32   <i/o st>	   417	<expr> output		     y
+ 4			 33   <i/o st>	   417	<get>			     n
+ 5			 34   <brk st>	   418	break			     y
+ 6			 35   <ret st>	   419	return			     y
+ 7   <statement>    34	 23   <if/else st> 410	else <if statement>	     y
+ 8			  9   <st list>    405	<statement list>	     n
+ 9			 22   <if st>      409	<if clause>		     y
+10			 24   <wh st>      411	<while clause>		     y
+11			 25   <rep st>     412	<repeat clause>		     y
+12			 10   <st list>	   405				     n
+13   <variable>	     0	  7   <var list>   404	, <var list>		     n
+14			 36   <get>	   420	, <get>			     y
+15			 37   <get>	   420	input			     y
+16			  8   <var list>   404				     n
+17			 53   <primary>	   426				     n
+18	       )    15	 40   <cond>	   422	<expr> <bool rel> <expr> (   y
+19			 29   <rep cl>	   415	<expr> ( repeat		     y
+20			 27   <wh cl>	   414	( while			     y
+21			 52   <primary>	   426	<expr> (		     n
+22        <term>    53	 45   <expr>	   424	+ <expr>		     y
+23			 46   <expr>	   424	- <expr>		     y
+24			 99   <expr>	   424	& <expr>		     y
+25			 47   <expr>	   424	-			     y
+26			 48   <expr>	   424				     n
+27     <primary>    54	 49   <term>	   425	* <term>		     y
+28			 50   <term>	   425	/ <term>		     y
+29			 51   <term>	   425				     n
+30	       }    13	  1   <program>	   400	<st list> <dec list> {	     n
+31			 19   <comp st>	   407	<st list> {		     n
+32 <declaration>    30	  2   <dec list>   401	<dec list>		     n
+33			  3   <dec list>   401				     n
+34   <condition>    50	 26   <if cl>	   413	if			     y
+35			 28   <wh cl>	   414	while			     y
+36  <expression>    52	 38   <put>	   421	, <put>			     y
+37			 42   <put>	   421	output			     y
+
+38	   float     2	  5   <type>	   403				     n
+39	     int     6	  6   <type>	   403				     n
+40 <compound st>    35	 11   <st>	   406				     n
+41  <conditl st>    36	 12   <st>	   406				     n
+42    <while st>    39	 13   <st>	   406				     y
+43   <repeat st>    40	 14   <st>	   406				     n
+44   <assign st>    44	 15   <st>	   406				     n
+45      <i/o st>    45	 16   <st>	   406				     n
+46    <break st>    46	 17   <st>	   406				     n
+47   <return st>    47	 18   <st>	   406				     n
+48	 <if st>    37	 20   <st>	   406				     n
+49  <if/else st>    38	 21   <st>	   406				     n
+50	       <    21	 41   <bool rel>   423				     y
+51	      <=    22	 42   <bool rel>   423				     y
+52	      ==    23	 43   <bool rel>   423				     y
+53	      !=    24	 44   <bool rel>   423				     y
+54    <constant>     1	 54   <primary>	   426				     n
