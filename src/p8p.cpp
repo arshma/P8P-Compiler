@@ -43,8 +43,7 @@ main( int argc,char **argv )
 	return( 0 );
 }
 
-long double
-atold( char *a )
+long double atold( char *a )
 {
 	long double tento( int );
 	long double y;
@@ -80,16 +79,14 @@ atold( char *a )
 	return (s? -y: y);	
 }
 
-void
-baddigitstr( char *t )
+void baddigitstr( char *t )
 {
 	fprintf(fpe, e2, line, t);
 	nerr++;
 	lsymb = symbol[nsymb++] = 0;
 }
 
-void
-closeout( void )
+void closeout( void )
 {
 	void makename( char *,char *,char * );
 
@@ -136,8 +133,7 @@ closeout( void )
 	remove( fcode );
 }
 
-int
-comp( int s,int *p )
+int comp( int s,int *p )
 {
 	for(modes = (int)mode[s]; *p && s; p++) {
 		if(symbol[--s] != *p) {
@@ -152,8 +148,7 @@ comp( int s,int *p )
 }
 
 //'&' operator should produce internal code 365 due to changes in delim[]
-void
-delimiter( void )
+void delimiter( void )
 {
 	lsymb = symbol[nsymb++] = 350 + (int)delim[(int)ch & 0x00ff];
 	if(ch == ';') {
@@ -161,8 +156,7 @@ delimiter( void )
 	}
 }
 
-void
-emit0( int n )
+void emit0( int n )
 {
 	if(n < 100) {
 		fprintf(fpc, "%s", reg[n]);
@@ -175,14 +169,12 @@ emit0( int n )
 	}
 }
 
-void
-emit1( int i )
+void emit1( int i )
 {
 	fprintf(fpc, "\t%s\n", inst[i]);
 }
 
-void
-emit2( int i,int j )
+void emit2( int i,int j )
 {
 	void emit0( int );
 	
@@ -191,8 +183,7 @@ emit2( int i,int j )
 	fputs("\n", fpc);	
 }
 
-void
-emit3( int i,int j,int k )
+void emit3( int i,int j,int k )
 {
 	void emit0( int );
 	
@@ -203,16 +194,14 @@ emit3( int i,int j,int k )
 	fputs("\n", fpc);
 }
 
-void
-extradot( int d,char *t )
+void extradot( int d,char *t )
 {
 	fprintf(fpe, e0, line, d, t);
 	nerr++;
 	lsymb = symbol[nsymb++] = 0;
 }
 
-void
-floatstr( char *t )
+void floatstr( char *t )
 {
 	long double atold( char * );
 
@@ -246,8 +235,7 @@ floatstr( char *t )
 //new case of '24' was added for the outmost switch to produce code for '&'
 //all previous cases with value 24 or greater were incremented to
 //due to new row being inserted into the reducing table
-void
-gencode( void )
+void gencode( void )
 {
 	int nextr( void );
 	void emit1( int ),emit2( int,int ),emit3( int,int,int );
@@ -877,8 +865,7 @@ gencode( void )
 	}
 }
 
-void
-getsymbol( void )
+void getsymbol( void )
 {
 	if(nsymb <= isymb) {
 		eos++;
@@ -906,8 +893,7 @@ getsymbol( void )
 //		if return value y < 0, then hash = -(y+1)
 //				       else hash = y.
 //
-int
-hash( char *s )
+int hash( char *s )
 {
 	int h,q;
 	char *p;
@@ -932,16 +918,14 @@ hash( char *s )
 	}			
 }
 
-void
-illegalch( void )
+void illegalch( void )
 {
 	fprintf(fpe, e1, line, ch);
 	nerr++;
 	lsymb = symbol[nsymb++] = 0;
 }
 
-void
-initparse( void )
+void initparse( void )
 {
 	int r;
 	
@@ -964,8 +948,7 @@ initparse( void )
 	}
 }
 
-void
-initscan( void )
+void initscan( void )
 {
 	int hash( char * );
 
@@ -997,8 +980,7 @@ initscan( void )
 	}
 }
 
-void
-intstr( char *t )
+void intstr( char *t )
 {
 	//long atol( char * );
 
@@ -1020,8 +1002,7 @@ intstr( char *t )
 	lsymb = symbol[nsymb++] = 249+nilit;
 }
 
-void
-letterstr( char *t )
+void letterstr( char *t )
 {
 	int hash( char * );
 
@@ -1077,8 +1058,7 @@ letterstr( char *t )
 	}
 }
 
-void
-makename( char *p,char *q,char *r )
+void makename( char *p,char *q,char *r )
 {
 	for( ; *p && (*p != '.'); ) {
 		*r++ = *p++;
@@ -1091,8 +1071,7 @@ makename( char *p,char *q,char *r )
 }
 
 //changes incurred by '&' operator are labeled below
-void
-match( void )
+void match( void )
 {
 	void gencode( void );
 	//constant incremented from 37 to 38; insertion of a new row in the 
@@ -1116,8 +1095,7 @@ match( void )
 	}
 }
 
-int
-nextr( void )
+int nextr( void )
 {
 	int r;
 	
@@ -1146,8 +1124,7 @@ nextr( void )
 //@param: char*, char*
 //@ret: int
 //@descrip: 
-int
-nexts( char *s,char *t )
+int nexts( char *s,char *t )
 {
 	int ch2,e,st;
 	static char *p;
@@ -1264,8 +1241,7 @@ ouch( int c )
 	putchar( c );
 }
 
-void
-outscan( void )
+void outscan( void )
 {
 	void makename( char *,char *,char * ),ouch( int );
 
@@ -1347,8 +1323,7 @@ outscan( void )
 }
 
 //changes were applied to match(), reportbug(), reduce() called by this
-void
-parse( void )
+void parse( void )
 {
 	void closeout( void ),getsymbol( void ),initparse( void ),
 		reduce( void ),reportbug( void ),shift( void );
@@ -1392,8 +1367,7 @@ parse( void )
 }
 
 //changes incurred by '&' are labeled below
-void
-reduce( void )
+void reduce( void )
 {
 	int comp( int,int * );
 	void match( void );
@@ -1420,8 +1394,7 @@ reduce( void )
 }
 
 //changes incurred by '&' are labeled below
-void
-reportbug( void )
+void reportbug( void )
 {
 	void ouch( int );
 
@@ -1460,8 +1433,7 @@ reportbug( void )
 	printf("\n\nmaxtop = %4d\n\n", maxtop);
 }
 
-void
-scan( void )
+void scan( void )
 {
 	int nexts( char *,char * );
 	void baddigitstr( char * ),delimiter( void ),extradot( int,char * ),
@@ -1510,8 +1482,7 @@ scan( void )
 	outscan();
 }
 
-void
-shift( void )
+void shift( void )
 {
 	if(maxtop < ++top) {
 		maxtop = top;
@@ -1532,8 +1503,7 @@ shift( void )
 	eline = line;
 }
 
-long double
-tento( int n )
+long double tento( int n )
 {
 	long double y,z;
 	
